@@ -1,0 +1,19 @@
+.font-size{
+    font-size: 30px;
+    font-weight: 600;
+    color: white !important;
+}
+.Navbuttons {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.switch,.homeBtn{
+    padding: 10px;
+}
+label{
+    width: 100px;
+}

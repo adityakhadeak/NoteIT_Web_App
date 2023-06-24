@@ -1,0 +1,163 @@
+.left-sec h1{
+  font-size: 60px; 
+}
+
+.left-sec{
+  align-items: center;
+  width: 50%;
+  background-color: #2e3438;
+  color: white;
+  
+font-family: 'Kalam', cursive;
+font-family: 'Pangolin', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Cinzel', serif;
+}
+
+
+
+
+
+
+.notesFormContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+  }
+  
+  .notesForm {
+    background-color: #283035;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    padding: 30px;
+  }
+  
+  .notesForm__title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #1f95e4;
+  }
+  .formSub{
+    display: flex;
+    flex-direction: column;
+  }
+  .notesForm__inputGroup {
+    margin-bottom: 30px;
+  }
+  
+  .notesForm__label {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .notesForm__input {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 24px;
+    width: 100%;
+    background-color: #2e3438;
+    color: white;
+  }
+  .notesForm__input:focus{
+    background-color: #2e3438;
+  }
+  .notesForm__button {
+    background-color: #1f95e4;;
+    color: #fff;
+    border-radius: 5px;
+    width: 50%;
+    margin: 0 auto;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .notesForm__button:hover {
+    background-color: #0062cc;
+  }
+  
+  .notesForm__footer {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .notesForm__link {
+    color: #1f95e4;
+    text-decoration: none;
+    font-size: 24px;
+    transition: all 0.2s ease-in-out;
+  }
+  .alertdiv{
+    color: red;
+    font-size: 12px;
+    height: 25px;
+  }
+  .alert{
+    height: 40px;
+    padding: 11px;
+    margin: 0;
+
+  }
+  
+  .notesForm__link:hover {
+    text-decoration: underline;
+  }
+  
+  @media screen and (max-width: 730px) {
+    .mainDiv{
+      flex-direction: column;
+    }
+    .left-sec{
+      width: 100%;
+    }
+
+    .notesFormContainer {
+      width: 100%
+  }
+
+  .left-sec h1{
+    font-size: 35px; 
+  }
+  .left-sec h3,h4{
+    font-size: 20px; 
+  }
+
+  .notesForm__title{
+    font-size: 30px;;
+  }
+
+  .notesForm__input {
+    font-size: 15px;
+  }
+
+  .notesForm__label {
+    font-size: 20px
+    ;
+  }
+
+  .notesForm__button {
+    font-size: 18px;
+  }
+
+
+  .notesForm__inputGroup {
+    margin-bottom: 10px ;
+  }
+
+  .notesForm__link{
+    font-size: 20px;
+  }
+  .alert {
+    height: 25px;
+    padding: 5px;
+    margin: 0;
+}
+}

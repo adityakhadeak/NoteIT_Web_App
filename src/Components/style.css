@@ -1,0 +1,56 @@
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 1rem;
+  }
+  body{
+    background-color: #30353b;
+    font-family: 'Cinzel', serif;
+  }
+  nav h1 {
+    margin: 0;
+  }
+  
+  /* AllNotes component */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  .notes-container{
+    padding: 10px;
+  }
+  .card {
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: #3e464b;
+    color: white;
+  }
+  
+  .card h5 {
+    margin-top: 0;
+  }
+  
+  .card p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .card form {
+    margin-bottom: 0;
+  }
+  
+  .card button {
+    margin-top: 0.5rem;
+    margin-left: 20px;
+  }
+  footer{
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+    width: 100%;
+    margin: 10px auto;
+  }
