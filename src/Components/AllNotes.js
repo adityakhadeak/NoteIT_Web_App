@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeNote, updateNote } from "../Redux/action";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+import "./AllNotes.css";
 import { useForm } from "react-hook-form";
 import { addNote } from '../Redux/action';
-import NavBar from './NavBar'
-
-export default function AllNotes() {
+export default function AllNotes(props) {
   const notes = useSelector((state) => state.notes);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -85,15 +84,14 @@ export default function AllNotes() {
     // localStorage.setItem("noOfNotes", noOfNotes)
   };
 
-  const homeButton = <button className="button-29" role="button" onClick={() => navigate("/")}>Home</button>
 
   return (
     <>
-      <NavBar elementProp={homeButton}/>
+
       <main>
         <div className="notes-container">
           {notes.map((note) => (
-            <div className="card" key={note.id}>
+            <div className="card" style={{ backgroundColor: props.mode === 'light' ? 'rgb(221, 232, 239)' : '#2e3438 ', color: props.mode === 'light' ? 'black' : 'white' }} key={note.id}>
               <div className="card-body">
                 {editNoteId === note.id ? (
                   <form onSubmit={handleSubmit(handleUpdateNote)}>
@@ -101,6 +99,7 @@ export default function AllNotes() {
                       <label htmlFor="editTitle">Title:</label>
                       <input
                         type="text"
+                        style={{ backgroundColor: props.mode === 'light' ? '#ffffff' : '#2e3438 ', color: props.mode === 'light' ? 'black' : 'white' }}
                         className="form-control"
                         id="editTitle"
                         {...register("title", { required: true })}
@@ -117,6 +116,8 @@ export default function AllNotes() {
                     <div className="form-group">
                       <label htmlFor="editContent">Content:</label>
                       <textarea
+                        style={{ backgroundColor: props.mode === 'light' ? '#ffffff' : '#2e3438 ', color: props.mode === 'light' ? 'black' : 'white' }}
+
                         className="form-control"
                         id="editContent"
                         rows="3"
@@ -165,8 +166,13 @@ export default function AllNotes() {
             </div>
           ))}
         </div>
+        <svg xmlns="http://www.w3.org/2000/svg" onClick={() => navigate("/")} style={{ boxShadow: props.mode === 'light' ? 'rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset' : 'rgb(255 255 255 / 40%) 0 2px 4px, rgb(180 180 180 / 30%) 0 9px 13px -3px, rgb(163 171 220 / 50%) 0 -3px 0 inset' }} width="60" height="60" fill="white" class="bi bi-plus-circle-fill AddNote button-29" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+        </svg>
+
       </main>
-      <footer>
+      <footer  style={{ color:props.mode==='light'?'black':'white' }}
+>
         <p>&copy; 2023 Notes App by AK. All rights reserved.</p>
       </footer>
     </>

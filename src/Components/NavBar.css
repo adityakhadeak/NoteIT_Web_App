@@ -1,7 +1,6 @@
 .font-size{
     font-size: 30px;
     font-weight: 600;
-    color: white !important;
 }
 .Navbuttons {
     align-items: baseline;
@@ -11,9 +10,15 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-.switch,.homeBtn{
+.homePage{
+    cursor: pointer;
+}
+.switch{
     padding: 10px;
 }
 label{
     width: 100px;
+}
+.bg-light{
+    background-color: rgb(188 204 222) !important;
 }
