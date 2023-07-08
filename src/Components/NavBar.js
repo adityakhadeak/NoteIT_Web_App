@@ -12,9 +12,9 @@ function ContainerOutsideExample(props) {
 
             <Navbar.Brand className={`ms-5 font-size homePage text-${props.mode==='light'?'dark':'light'}`} onClick={() => navigate("/")}>Note IT</Navbar.Brand>
             <div className='Navbuttons'>
-                <div class="form-check form-switch switch">
-                    <input class="form-check-input" onClick={props.toggleMode} type="checkbox" defaultChecked role="switch" id="flexSwitchCheckDefault" />
-                    <label class={`form-check-label text-${props.mode==='light'?'dark':'light'} `}  for="flexSwitchCheckDefault">Dark Mode</label>
+                <div className="form-check form-switch switch">
+                    <input className="form-check-input" onClick={props.toggleMode} type="checkbox" defaultChecked role="switch" id="flexSwitchCheckDefault" />
+                    <label className={`form-check-label text-${props.mode==='light'?'dark':'light'} `}  htmlFor="flexSwitchCheckDefault">Dark Mode</label>
                 </div>
                 <div className='homeBtn '>{props.elementProp}</div>
             </div>

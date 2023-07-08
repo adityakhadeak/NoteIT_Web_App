@@ -20,11 +20,9 @@ const NotesForm = (props) => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
-  let keyID = 0;
   const handleSubmission = () => {
-    keyID = notes.length + 1;
     dispatch(addNote(title, content));
-    localStorage.setItem(title + " " + keyID, content);
+    localStorage.setItem(title, content);
     setTitle("");
     setContent("");
     navigate("/allNotes");
@@ -48,8 +46,8 @@ const NotesForm = (props) => {
               <div className="notesForm__inputGroup" >
                 <label className="notesForm__label">Title:</label>
                 <input
-                  className="notesForm__input"  
-                  style={{ backgroundColor: props.mode === 'light' ? '#ffffff' : '#2e3438 ',color:props.mode==='light'?'black':'white' }}
+                  className="notesForm__input"
+                  style={{ backgroundColor: props.mode === 'light' ? '#ffffff' : '#2e3438 ', color: props.mode === 'light' ? 'black' : 'white' }}
                   type="text"
                   name="title"
                   {...register("title", { required: true })}
@@ -59,7 +57,7 @@ const NotesForm = (props) => {
                 />
                 <div className="alertdiv">
                   {errors.title && errors.title.type === "required" && (
-                    <div class="alert alert-danger" role="alert">
+                    <div className="alert alert-danger" role="alert">
                       Title cannot be empty
                     </div>
                   )}
@@ -69,7 +67,7 @@ const NotesForm = (props) => {
                 <label className="notesForm__label">Content:</label>
                 <textarea
                   className="notesForm__input"
-                  style={{ backgroundColor: props.mode === 'light' ? '#ffffff' : '#2e3438 ',color:props.mode==='light'?'black':'white' }}
+                  style={{ backgroundColor: props.mode === 'light' ? '#ffffff' : '#2e3438 ', color: props.mode === 'light' ? 'black' : 'white' }}
                   name="content"
                   {...register("content", { required: true, min: 5 })}
                   value={content}
@@ -78,7 +76,7 @@ const NotesForm = (props) => {
                 />
                 <div className="alertdiv">
                   {errors.content && errors.content.type === "required" && (
-                    <div class="alert alert-danger" role="alert">
+                    <div className="alert alert-danger" role="alert">
                       Content cannot be empty
                     </div>
                   )}

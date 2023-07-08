@@ -13,6 +13,10 @@ export default function AllNotes(props) {
   const [editNoteId, setEditNoteId] = useState(null);
   const [editTitle, setEditTitle] = useState("");
   const [editContent, setEditContent] = useState("");
+  //const [deleteButtons, setDeleteButtons] = useState(document.querySelectorAll('.card .btn-danger'));
+  
+  
+
 
   const { register, handleSubmit, formState: { errors }, } = useForm({});
   // let [dataLoaded, setData] = useState('no')
@@ -31,10 +35,9 @@ export default function AllNotes(props) {
     if (dataLoaded === 'no') {
       dataLoaded = 'yes'
       for (var i = 0; i < localStorage.length; i++) {
-        var key = skipLastWord(localStorage.key(i))
-
+        var key = localStorage.key(i)
+       
         var value = localStorage.getItem(localStorage.key(i));
-        // console.log('Iteration', i + 1, ':', key + ': ' + value);
 
         notes.map((note) => {
           if (note.title == key || note.content == value)
@@ -69,25 +72,14 @@ export default function AllNotes(props) {
     setEditContent("");
   };
 
-  const handleDeleteNote = (id) => {
+  const handleDeleteNote = (id,title) => {
     dispatch(removeNote(id));
-    for (var i = 0; i < localStorage.length; i++) {
-      if (localStorage.key(i).split(" ").slice(-1)[0] == id) {
-        toBeDel = i
-        break
-      }
-
-    }
-    console.log(localStorage.key(toBeDel))
-    localStorage.removeItem(localStorage.key(toBeDel))
-    //setNoOfNotes(noOfNotes--);
-    // localStorage.setItem("noOfNotes", noOfNotes)
+    localStorage.removeItem(title)
   };
 
 
   return (
     <>
-
       <main>
         <div className="notes-container">
           {notes.map((note) => (
@@ -108,7 +100,7 @@ export default function AllNotes(props) {
                       />
 
                       {errors.title && errors.title.type === "required" && (
-                        <div class="alert alert-danger" role="alert">
+                        <div className="alert alert-danger" role="alert">
                           Title cannot be empty
                         </div>
                       )}
@@ -126,7 +118,7 @@ export default function AllNotes(props) {
                         onChange={(e) => setEditContent(e.target.value)}
                       ></textarea>
                       {errors.content && errors.content.type === "required" && (
-                        <div class="alert alert-danger" role="alert">
+                        <div className="alert alert-danger" role="alert">
                           Content cannot be empty
                         </div>
                       )}
@@ -149,7 +141,7 @@ export default function AllNotes(props) {
                     <div className="card-buttons">
                       <button
                         className="btn btn-danger"
-                        onClick={() => handleDeleteNote(note.id)}
+                        onClick={() => handleDeleteNote(note.id,note.title)}
                       >
                         Delete
                       </button>
@@ -166,11 +158,12 @@ export default function AllNotes(props) {
             </div>
           ))}
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" onClick={() => navigate("/")} style={{ boxShadow: props.mode === 'light' ? 'rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset' : 'rgb(255 255 255 / 40%) 0 2px 4px, rgb(180 180 180 / 30%) 0 9px 13px -3px, rgb(163 171 220 / 50%) 0 -3px 0 inset' }} width="60" height="60" fill="white" class="bi bi-plus-circle-fill AddNote button-29" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" onClick={() => navigate("/")} style={{ boxShadow: props.mode === 'light' ? 'rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset' : 'rgb(255 255 255 / 40%) 0 2px 4px, rgb(180 180 180 / 30%) 0 9px 13px -3px, rgb(163 171 220 / 50%) 0 -3px 0 inset' }} width="60" height="60" fill="white" className="bi bi-plus-circle-fill AddNote button-29" viewBox="0 0 16 16">
           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
         </svg>
 
       </main>
+      
       <footer  style={{ color:props.mode==='light'?'black':'white' }}
 >
         <p>&copy; 2023 Notes App by AK. All rights reserved.</p>
@@ -178,3 +171,8 @@ export default function AllNotes(props) {
     </>
   );
 }
+
+
+
+
+
