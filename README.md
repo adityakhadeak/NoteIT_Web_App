@@ -1,3 +1,7 @@
+# NoteIT_Web_App
+This is a Simple Note Taking App. It is made using React-Redux. The purpose of making this was to learn the concept of React Redux and apply it.
+This web App doest not have any database connectivity but it uses user's browser local storage to to save the notes but onces it is deleted from the app it is removed from the browser also.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +72,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
